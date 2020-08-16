@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Stepper from "../shared/Stepper"
 import FormRegisterCustomer from "../forms/FormRegister"
-import FormTimetableCustomer from "../forms/FormTimetable"
+import Timetable from "../Timetable"
 
 export default function Register() {
 
@@ -23,7 +23,7 @@ export default function Register() {
     <>
       <Stepper steps={steps} activeStep={activeStep} />
       {activeStep === 1 && <FormRegisterCustomer handleStepper={nextStep} />}
-      {activeStep === 2 && <FormTimetableCustomer />}
+      {activeStep === 2 && <Timetable />}
       {activeStep > 1 && <span onClick={backStep}>BACK</span>}
     </>
   )
