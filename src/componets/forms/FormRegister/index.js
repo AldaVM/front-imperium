@@ -1,24 +1,28 @@
 import { Form, WrapperInput, WrapperInputs, Input, Label, Select, Button } from "../"
 import schemaCustomerRegister from "./validate"
 import { useFormik } from "formik"
+import {useRoot} from "../../../../hooks"
 
 export default function FormRegisterCustomer({ handleStepper }) {
 
+  const  {setUpdateUser,user}=useRoot();
+  
   const { values, handleChange, isValid, errors, handleSubmit } = useFormik({
     initialValues: {
-      names: "",
-      surnames: "",
-      phone_number: "",
-      email: "",
-      age: "",
-      gender: "",
-      address: "",
+      names: user?.names||"",
+      surnames:user?.surnames|| "",
+      phone_number:user?.phone_number|| "",
+      email:user?.email ||"",
+      age: user?.age||"",
+      gender: user?.gender||"",
+      address: user?.address||"",
     },
     validationSchema: schemaCustomerRegister,
     onSubmit: function (values, bag) {
       bag.setSubmitting(false);
-      handleStepper()
-      console.log(values)
+      handleStepper();
+      console.log(values);
+      setUpdateUser(values);
     }
   })
 
