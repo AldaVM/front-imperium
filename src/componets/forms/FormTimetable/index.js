@@ -46,7 +46,6 @@ export default function FormTimetable({ updateTimetable, updateLoading, updateMe
       console.log(response)
 
       updateLoading(false)
-
     }
 
   })

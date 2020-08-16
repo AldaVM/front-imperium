@@ -122,7 +122,6 @@ export const Button = styled.button`
   box-shadow: none;
   padding: 1.3em 2em; 
   font-size: var(--fontSize);
-  margin: 0.61rem 0.3rem;
   &:active {
     color: #000000;
     background-color: #2ec4b6;

@@ -5,6 +5,7 @@ export const Footer = styled("footer")`
   position: relative;
   width: 100%;
   background-color: var(--colorPrimary);
+  margin-top: 4rem;
 `
 
 export const FooterContainer = styled(Container)`

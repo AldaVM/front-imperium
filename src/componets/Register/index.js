@@ -23,8 +23,10 @@ export default function Register() {
     <>
       <Stepper steps={steps} activeStep={activeStep} />
       {activeStep === 1 && <FormRegisterCustomer handleStepper={nextStep} />}
-      {activeStep === 2 && <Timetable />}
-      {activeStep > 1 && <span onClick={backStep}>BACK</span>}
+      {activeStep === 2 && <Timetable handleStepper={{
+        back: backStep,
+        next: nextStep
+      }} />}
     </>
   )
 }
