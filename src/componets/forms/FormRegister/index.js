@@ -1,7 +1,7 @@
 import { Form, WrapperInput, WrapperInputs, Input, Label, Select, Button } from "../"
 import schemaCustomerRegister from "./validate"
 import { useFormik } from "formik"
-import {useRoot} from "../../../../hooks"
+import {useRoot} from "../../../hooks"
 
 export default function FormRegisterCustomer({ handleStepper }) {
 
