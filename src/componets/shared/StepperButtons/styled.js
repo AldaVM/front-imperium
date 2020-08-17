@@ -8,7 +8,7 @@ export const WrapperStepsButtons = styled("div")`
   padding: 4em 1rem;
 `
 
-export const ButtonStep = styled("span")`
+export const ButtonStep = styled("button")`
   align-self: ${props => props.alignSelf};
   cursor: pointer;
   display: block;

@@ -1,9 +1,13 @@
 import { Table } from "./styled"
+import useRoot from "../../hooks/useRoot"
 
-export default function TableTurn({ turns = [], setIdTurn, idTurn }) {
+export default function TableTurn({ turns }) {
 
-  function updateIdTurn(e) {
-    setIdTurn(e.target.value)
+  const { currentTurn: { currentTurn, updateCurrentTurn } } = useRoot();
+
+  function handleSelectedTurn({ target }) {
+    const [turn] = turns.filter((turn) => turn._id === target.value)
+    updateCurrentTurn(turn)
   }
 
   return (
@@ -21,7 +25,15 @@ export default function TableTurn({ turns = [], setIdTurn, idTurn }) {
           <tr key={turn._id}>
             <td>
               <div>
-                <label><input type="radio" id='regular' name="id_timetable" value={turn._id} onClick={updateIdTurn} checked={turn._id === idTurn ? "defaultChecked" : ""} /></label>
+                <label>
+                  <input
+                    type="radio"
+                    name="id_timetable"
+                    value={turn._id}
+                    onChange={handleSelectedTurn}
+                    checked={currentTurn._id === turn._id}
+                  />
+                </label>
               </div>
             </td>
             <td>{turn.class_shift}</td>

@@ -2,9 +2,12 @@ import { Form, WrapperInput, WrapperInputs, Label, Select, Button } from "../"
 import { useFormik } from "formik"
 import fetchData from "../../../helpers/fetchData"
 import schemaTimetable from "./validate"
+import useRoot from "../../../hooks/useRoot"
 
+export default function FormTimetable({ updateLoading, updateMessage }) {
 
-export default function FormTimetable({ updateTimetable, updateLoading, updateMessage }) {
+  const { turns: { updateTurns } } = useRoot()
+  const { currentTurn: { updateCurrentTurn } } = useRoot();
 
   const { values, handleChange, isValid, errors, handleSubmit } = useFormik({
     initialValues: {
@@ -35,15 +38,14 @@ export default function FormTimetable({ updateTimetable, updateLoading, updateMe
 
       if (response.status === 200) {
         if (response.data) {
-          updateTimetable(response.data)
+          updateTurns(response.data)
           updateMessage("")
         } else {
           updateMessage(`${response.message}, prueba con otro`)
-          updateTimetable([])
+          updateCurrentTurn({ _id: null })
+          updateTurns([])
         }
       }
-
-      console.log(response)
 
       updateLoading(false)
     }

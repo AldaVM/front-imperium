@@ -9,7 +9,7 @@ export default function Register() {
 
   const steps = [
     { description: "Registra tus datos personales", title: "¡Bienvenido a nuestro proceso de Registro!", caption: "Por favor ingresa tus datos" },
-    { description: "Selecciona tu turno", title: "¡Muy bien!, ahora seleccion un turno", caption: "Primero verifica los turnos disponibles" },
+    { description: "Selecciona tu turno", title: "¡Muy bien!, ahora selecciona un turno", caption: "Primero verifica los turnos disponibles" },
     { description: "Seleciona tu modalidad de pago", title: "Bienvenido a nuestro proceso de Registro", caption: "Por favor ingresa tus datos" },
   ];
 
