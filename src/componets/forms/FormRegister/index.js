@@ -1,4 +1,4 @@
-import { Form, WrapperInput, WrapperInputs, Input, Label, Select, Button } from "../"
+import { Form, WrapperInput, Input, Label, Select, Button } from "../"
 import schemaCustomerRegister from "./validate"
 import { useFormik } from "formik"
 import useRoot from "../../../hooks/useRoot"
@@ -27,45 +27,40 @@ export default function FormRegisterCustomer({ handleStepper }) {
 
   return (
     <Form flexDirection="column" maxWidth="900px" onSubmit={handleSubmit}>
-      <WrapperInputs alignItems="flex">
-        <WrapperInput maxWidth="48%">
-          <Label>Nombres:</Label>
-          <Input type="text" placeholder="" error={errors.names} name="names" value={values.names} onChange={handleChange} />
-        </WrapperInput>
-        <WrapperInput maxWidth="48%">
-          <Label>Apellidos:</Label>
-          <Input type="text" placeholder="" error={errors.surnames} name="surnames" value={values.surnames} onChange={handleChange} />
-        </WrapperInput>
-      </WrapperInputs>
 
-      <WrapperInputs alignItems="flex">
-        <WrapperInput maxWidth="48%">
-          <Label>Celular:</Label>
-          <Input type="text" placeholder="" error={errors.phone_number} name="phone_number" value={values.phone_number} onChange={handleChange} />
-        </WrapperInput>
-        <WrapperInput maxWidth="48%">
-          <Label>Email:</Label>
-          <Input type="email" placeholder="" error={errors.email} name="email" value={values.email} onChange={handleChange} />
-        </WrapperInput>
-      </WrapperInputs>
+      <WrapperInput>
+        <Label>Nombres:</Label>
+        <Input type="text" placeholder="" error={errors.names} name="names" value={values.names} onChange={handleChange} />
+      </WrapperInput>
+      <WrapperInput>
+        <Label>Apellidos:</Label>
+        <Input type="text" placeholder="" error={errors.surnames} name="surnames" value={values.surnames} onChange={handleChange} />
+      </WrapperInput>
 
-      <WrapperInputs alignItems="flex">
-        <WrapperInput maxWidth="48%">
-          <Label>Edad:</Label>
-          <Input type="number" placeholder="" error={errors.age} name="age" value={values.age} onChange={handleChange} />
-        </WrapperInput>
+      <WrapperInput>
+        <Label>Celular:</Label>
+        <Input type="text" placeholder="" error={errors.phone_number} name="phone_number" value={values.phone_number} onChange={handleChange} />
+      </WrapperInput>
+      <WrapperInput>
+        <Label>Email:</Label>
+        <Input type="email" placeholder="" error={errors.email} name="email" value={values.email} onChange={handleChange} />
+      </WrapperInput>
 
-        <WrapperInput maxWidth="48%">
-          <Label>Género:</Label>
-          <Select onChange={handleChange} error={errors.gender} name="gender" value={values.gender}>
-            <option>Selecciona tu género</option>
-            <option value="female">Mujer</option>
-            <option value="male">Hombre</option>
-            <option value="other">Otro</option>
-          </Select>
-        </WrapperInput>
-      </WrapperInputs>
+      <WrapperInput>
+        <Label>Edad:</Label>
+        <Input type="number" placeholder="" error={errors.age} name="age" value={values.age} onChange={handleChange} />
+      </WrapperInput>
 
+      <WrapperInput>
+        <Label>Género:</Label>
+        <Select onChange={handleChange} error={errors.gender} name="gender" value={values.gender}>
+          <option>Selecciona tu género</option>
+          <option value="female">Mujer</option>
+          <option value="male">Hombre</option>
+          <option value="other">Otro</option>
+        </Select>
+      </WrapperInput>
+      
       <WrapperInput>
         <Label>Dirección:</Label>
         <Input type="text" placeholder="" error={errors.address} name="address" value={values.address} onChange={handleChange} />

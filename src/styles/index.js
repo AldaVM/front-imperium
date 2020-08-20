@@ -17,10 +17,10 @@ export const globalStyle = (
         --fontSize: 15px;
         --textBold: 700;
         --textLight: 300;
-        --fontSizeH1: 3.2rem;
-        --fontSizeH2: 3rem;
-        --fontSizeH3: 2rem;
-        --fontSizeH4: 1.2rem;
+        --fontSizeH1: 2rem;
+        --fontSizeH2: 1.5rem;
+        --fontSizeH3: 1.2rem;
+        --fontSizeH4: 1.1rem;
         --fontSizeSubtitle: 1rem;
         --fontSizeButton: 1rem;
         --fontSizeCaption: 0.75rem;
@@ -46,12 +46,18 @@ export const globalStyle = (
         font-family: var(--fontFamily);
         font-size: var(--fontSize);
         letter-spacing: 0.0125rem;
+        background-image:
+          radial-gradient(var(--colorPrimary) 1px, #fdfdfd 1px),
+          radial-gradient(var(--colorPrimary) 1px, #fdfdfd 1px);
+        background-position: 0 0, 25px 25px;
+        background-size: 50px 50px;
       }
 
       h1 {
         font-size: var(--fontSizeH1);
         font-weight: var(--textBold);
         letter-spacing: -0.09375rem;
+        text-align: center;
       }
       h2 {
         font-size: var(--fontSizeH2);

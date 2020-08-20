@@ -9,7 +9,8 @@ export const Form = styled("form")`
   align-items: center;
   margin: 0 auto;
   max-width: ${(props) => props.maxWidth};
-  padding: 2rem 1rem;
+  padding: 1rem;
+  width: 100%;
 
   ${sizeMediaQuery(BREAKPOINTS.s)}{
     flex-direction: column;
@@ -17,7 +18,7 @@ export const Form = styled("form")`
 `
 
 export const Select = styled.select`
-  border: ${(props) => props.error ? "3px solid #9e2a2b" : "3px solid #2ec4b6"};
+  border: ${(props) => props.error ? "2px solid #9e2a2b" : "2px solid #2ec4b6"};
   border-radius: 0.3em;
   padding: 0.8em;
   background-color: #fff;
@@ -46,7 +47,7 @@ export const Label = styled.label`
 `;
 
 export const Input = styled.input`
-  border: ${(props) => props.error ? "3px solid #9e2a2b" : "3px solid #2ec4b6"};
+  border: ${(props) => props.error ? "2px solid #9e2a2b" : "2px solid #2ec4b6"};
   border-radius: 0.3em;
   padding: 0.8em;
   width: 100%;
@@ -54,7 +55,7 @@ export const Input = styled.input`
   max-width: ${(props) => props.maxWidth};
   font-size: var(--fontSize);
   &:focus {
-    border-color: 3px solid #00b4d8;
+    border-color: 2px solid #00b4d8;
   }
   &[disabled] {
     background-color: rgba(0, 0, 0, 0.1);
@@ -66,7 +67,7 @@ export const Input = styled.input`
 `;
 
 export const Textarea = styled.textarea`
-  border: ${(props) => props.error ? "3px solid #9e2a2b" : "3px solid #2ec4b6"};;
+  border: ${(props) => props.error ? "2px solid #9e2a2b" : "2px solid #2ec4b6"};;
   font-size: var(--fontSize);
   border-radius: 0.3em;
   padding: 0.6em;
@@ -98,18 +99,6 @@ export const WrapperInput = styled.div`
   }
 `;
 
-export const WrapperInputs = styled("div")`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  max-width: ${props => props.maxWidth};
-
-  ${sizeMediaQuery(BREAKPOINTS.s)}{
-    flex-direction: column;
-  }
-`
-
 export const Button = styled.button`
   align-self: ${props => props.alignSelf};
   cursor: pointer;
@@ -120,6 +109,7 @@ export const Button = styled.button`
   letter-spacing: 1px;
   border-radius: 0.3em;
   box-shadow: none;
+  margin-top: .5rem;
   padding: 1.3em 2em; 
   font-size: var(--fontSize);
   &:active {
@@ -130,7 +120,7 @@ export const Button = styled.button`
     color: gray;
     background-color: rgba(0, 0, 0, 0.1);
     cursor: not-allowed;
-    border: 3px solid 9e2a2b;
+    border: 2px solid 9e2a2b;
   }
   & i {
     margin-right: 0.3em;

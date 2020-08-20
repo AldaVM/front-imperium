@@ -2,11 +2,15 @@ import styled from "@emotion/styled"
 
 export const StepperHeader = styled("div")`
   text-align: center;
-  padding: 2em 0;
+  padding: 1em;
 
   span {
     display: inline-block;
     font-size: 1.2em;
-    margin: 1em 0;
+    margin-top: 1.5em;
+  }
+
+  h1 {
+    line-height: 1.1;
   }
 `

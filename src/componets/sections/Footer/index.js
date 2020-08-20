@@ -1,11 +1,9 @@
-import { Footer, FooterContainer } from "./styled";
+import { Footer } from "./styled";
 
 export default function FooterSite() {
   return (
     <Footer>
-      <FooterContainer>
-        <span>Derechos Reservados Imperium Cross by AldaVM</span>
-      </FooterContainer>
+      <span>Derechos Reservados Imperium Cross</span>
     </Footer>
   )
 }

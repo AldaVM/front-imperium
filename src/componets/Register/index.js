@@ -2,15 +2,16 @@ import { useState } from "react"
 import Stepper from "../shared/Stepper"
 import FormRegisterCustomer from "../forms/FormRegister"
 import Timetable from "../Timetable"
+import Payment from "../Payment"
 
 export default function Register() {
 
   const [activeStep, setActiveStep] = useState(1);
 
   const steps = [
-    { description: "Registra tus datos personales", title: "¡Bienvenido a nuestro proceso de Registro!", caption: "Por favor ingresa tus datos" },
+    { description: "Registra tus datos", title: "¡Bienvenido a nuestro proceso de registro!", caption: "Por favor ingresa tus datos" },
     { description: "Selecciona tu turno", title: "¡Muy bien!, ahora selecciona un turno", caption: "Primero verifica los turnos disponibles" },
-    { description: "Seleciona tu modalidad de pago", title: "Bienvenido a nuestro proceso de Registro", caption: "Por favor ingresa tus datos" },
+    { description: "Seleciona tu modalidad de pago", title: "¡Genial!, selecciona el método de pago para finalizar el proceso", caption: "Selecciona un método para ser parte de nuestra familia" },
   ];
 
   const isValidStep = activeStep > 0 && activeStep <= steps.length - 1;
@@ -26,6 +27,9 @@ export default function Register() {
       {activeStep === 2 && <Timetable handleStepper={{
         back: backStep,
         next: nextStep
+      }} />}
+      {activeStep === 3 && <Payment handleStepper={{
+        back: backStep,
       }} />}
     </>
   )

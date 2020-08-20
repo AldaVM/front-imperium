@@ -1,12 +1,13 @@
-import Container from "../src/componets/shared/Container"
+import Home from "../src/componets/Home"
 
 
-export default function Home() {
+export default function Index() {
 
   return (
-    <Container>
-      Aquí validar el DNI
-    </Container>
+    <>
+      <Home />
+    </>
+
   )
 }
 

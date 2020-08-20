@@ -1,12 +1,9 @@
 import { WrapperStepsButtons, ButtonStep } from "./styled"
-import useRoot from "../../../hooks/useRoot"
 
-export default function StepperButtons({ backStep, nextStep }) {
-
-  const { currentTurn: { currentTurn } } = useRoot()
+export default function StepperButtons({ backStep, nextStep, verifyElement }) {
 
   function handleNextStep() {
-    if (currentTurn._id) {
+    if (verifyElement) {
       nextStep()
     }
   }
@@ -14,7 +11,7 @@ export default function StepperButtons({ backStep, nextStep }) {
   return (
     <WrapperStepsButtons>
       <ButtonStep onClick={backStep} backgroundColor="#2ec4b6" color="#ffffff" >Regresar</ButtonStep>
-      <ButtonStep onClick={handleNextStep} backgroundColor="#2ec4b6" color="#ffffff" disabled={!currentTurn._id}>Siguientes</ButtonStep>
+      {nextStep && <ButtonStep onClick={handleNextStep} backgroundColor="#2ec4b6" color="#ffffff" disabled={!verifyElement}>Siguiente</ButtonStep>}
     </WrapperStepsButtons>
   )
 }

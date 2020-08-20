@@ -5,4 +5,5 @@ export const StepperContainer = styled("ul")`
   display: block;
   padding: 2rem 0;
   margin-bottom: 6rem;
+  line-height: 1.2;
 `

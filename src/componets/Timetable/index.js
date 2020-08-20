@@ -7,7 +7,7 @@ import useRoot from "../../hooks/useRoot"
 
 export default function Timetable({ handleStepper }) {
 
-  const { turns: { turns } } = useRoot()
+  const { turns: { turns }, currentTurn: { currentTurn } } = useRoot()
 
   const [isLoading, setIsLoading] = useState(null)
   const [message, setMessage] = useState("")
@@ -18,7 +18,7 @@ export default function Timetable({ handleStepper }) {
       {isLoading && <MessageResponse>Buscando turnos disponibles...</MessageResponse>}
       {message && <MessageResponse>{message}</MessageResponse>}
       <TableTurn turns={turns} />
-      <StepperButtons backStep={handleStepper.back} nextStep={handleStepper.next} />
+      <StepperButtons backStep={handleStepper.back} nextStep={handleStepper.next} verifyElement={currentTurn?._id} />
     </>
   )
 }

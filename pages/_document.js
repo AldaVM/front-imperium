@@ -1,5 +1,6 @@
 import Document, { Head, Main, NextScript } from "next/document";
 import { extractCritical } from "emotion-server";
+import styled from "@emotion/styled";
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {

@@ -15,12 +15,12 @@ export const StepContent = styled("li")`
     position: relative;
     width: 40px;
     height: 40px;
-    border: 3px solid #ddd;
+    border: 2px solid #000000;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 auto 10px;
-    background-color: #ffffff;
+    background-color: #ddd;
     font-weight: var(--textBold);
     
   }
@@ -29,14 +29,14 @@ export const StepContent = styled("li")`
     content: " ";
     position: absolute;
     width: 100%;
-    height: 2px;
+    height: 4px;
     background-color: #ddd;
     top: 15px;
     left: -50%;
     z-index: -1;
   }
 
-  &:first-child:after {
+  &:first-child::after {
     content: none;
   }
 
@@ -44,17 +44,28 @@ export const StepContent = styled("li")`
     color: #000;
   }
 
-  &.active:before {
+  &.active::before {
     border-color: #2ec4b6;
     background-color: #2ec4b6;;
   }
 
-  &.active:after {
+  &.active::after {
     background-color: #2ec4b6;
   }
 
   &.inactive {
     color: #000;
+  }
+  &.active span{
+    color: #000;
+  }
+
+  & span{
+    display: inline-block;
+    line-hight: 1.5;
+    color: #ccc;
+    max-width: 75%;
+    text-align: center;
   }
 
 

@@ -1,15 +1,8 @@
 import styled from "@emotion/styled"
-import Container from "../../shared/Container"
 
-export const Footer = styled("footer")`
-  position: relative;
-  width: 100%;
-  background-color: var(--colorPrimary);
-  margin-top: 4rem;
-`
-
-export const FooterContainer = styled(Container)`
-  text-align: center;
-  color: #000000;
+export const Footer = styled("div")`
   padding: 1rem 0;
+  text-align: center;
+  background-color: #ffffff; 
+  border-radius: 10px;
 `

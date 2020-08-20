@@ -1,9 +1,10 @@
 import Head from "next/head";
 import FooterSite from "../../componets/sections/Footer"
+import { LayoutWrapper, MainLayout, Container } from "./styled"
 
 export default function Layout({ children }) {
   return (
-    <>
+    <LayoutWrapper>
       <Head>
         <link
           href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700&display=swap"
@@ -24,9 +25,15 @@ export default function Layout({ children }) {
           content="width=device-width, initial-scale=1.0"
         />
       </Head>
-      <main>{children}</main>
-      <FooterSite />
-    </>
+
+      <MainLayout>
+        <Container>
+          {children}
+        </Container>
+        <FooterSite />
+      </MainLayout>
+      
+
+    </LayoutWrapper>
   )
 }
-

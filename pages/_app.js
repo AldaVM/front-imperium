@@ -8,15 +8,22 @@ import RootContext from "../src/contexts/rootContext"
 function MyApp({ Component, pageProps }) {
 
   const [customer, setCustomer] = React.useState(null);
-  const [turns, setTurns] = React.useState([])
-  const [currentTurn, setCurrentTurn] = React.useState({ _id: null })
+  const [turns, setTurns] = React.useState([]);
+  const [currentTurn, setCurrentTurn] = React.useState({ _id: null });
+  const [paidMethod, setPaidMethod] = React.useState(null);
+  const [idCustomer, setIdCustomer] = React.useState(null);
 
   const updateCustomer = (currentCustomer) => setCustomer(currentCustomer);
   const updateTurns = (currentTurns) => setTurns(currentTurns);
-  const updateCurrentTurn = (currentTurn) => setCurrentTurn(currentTurn)
+  const updateCurrentTurn = (currentTurn) => setCurrentTurn(currentTurn);
+  const updateIdCustomer = (currentCustomer) => setIdCustomer(currentCustomer);
 
   const state = React.useMemo(
     () => ({
+      currentCustomer: {
+        idCustomer,
+        updateIdCustomer
+      },
       customer: {
         customer,
         updateCustomer
@@ -28,8 +35,12 @@ function MyApp({ Component, pageProps }) {
       currentTurn: {
         currentTurn,
         updateCurrentTurn
+      },
+      paid: {
+        paidMethod,
+        setPaidMethod
       }
-    }), [customer, turns, currentTurn]);
+    }), [customer, turns, currentTurn, paidMethod]);
 
   return (
     <>
