@@ -18,7 +18,7 @@ export const Form = styled("form")`
 `
 
 export const Select = styled.select`
-  border: ${(props) => props.error ? "2px solid #9e2a2b" : "2px solid #2ec4b6"};
+  border: ${(props) => props.error ? "2px solid #9e2a2b" : "2px solid var(--colorPrimary)"};
   border-radius: 0.3em;
   padding: 0.8em;
   background-color: #fff;
@@ -47,7 +47,7 @@ export const Label = styled.label`
 `;
 
 export const Input = styled.input`
-  border: ${(props) => props.error ? "2px solid #9e2a2b" : "2px solid #2ec4b6"};
+  border: ${(props) => props.error ? "2px solid #9e2a2b" : "2px solid var(--colorPrimary)"};
   border-radius: 0.3em;
   padding: 0.8em;
   width: 100%;
@@ -67,7 +67,7 @@ export const Input = styled.input`
 `;
 
 export const Textarea = styled.textarea`
-  border: ${(props) => props.error ? "2px solid #9e2a2b" : "2px solid #2ec4b6"};;
+  border: ${(props) => props.error ? "2px solid #9e2a2b" : "2px solid var(--colorPrimary)"};;
   font-size: var(--fontSize);
   border-radius: 0.3em;
   padding: 0.6em;
@@ -99,33 +99,6 @@ export const WrapperInput = styled.div`
   }
 `;
 
-export const Button = styled.button`
-  align-self: ${props => props.alignSelf};
-  cursor: pointer;
-  display: block;
-  background-color: ${(props) => props.backgroundColor};
-  color: ${(props) => props.color};
-  font-weight: var(--textBold);
-  letter-spacing: 1px;
-  border-radius: 0.3em;
-  box-shadow: none;
-  margin-top: .5rem;
-  padding: 1.3em 2em; 
-  font-size: var(--fontSize);
-  &:active {
-    color: #000000;
-    background-color: #2ec4b6;
-  }
-  &[disabled] {
-    color: gray;
-    background-color: rgba(0, 0, 0, 0.1);
-    cursor: not-allowed;
-    border: 2px solid 9e2a2b;
-  }
-  & i {
-    margin-right: 0.3em;
-  }
-`;
 
 
 

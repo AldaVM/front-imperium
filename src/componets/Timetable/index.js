@@ -15,7 +15,7 @@ export default function Timetable({ handleStepper }) {
   return (
     <>
       <FormTimetable updateLoading={setIsLoading} updateMessage={setMessage} />
-      {isLoading && <MessageResponse>Buscando turnos disponibles...</MessageResponse>}
+      {isLoading && <MessageResponse>Buscando turnos disponibles...⌛</MessageResponse>}
       {message && <MessageResponse>{message}</MessageResponse>}
       <TableTurn turns={turns} />
       <StepperButtons backStep={handleStepper.back} nextStep={handleStepper.next} verifyElement={currentTurn?._id} />

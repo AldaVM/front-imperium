@@ -1,4 +1,5 @@
-import { WrapperStepsButtons, ButtonStep } from "./styled"
+import { WrapperStepsButtons } from "./styled"
+import { Button } from "../Button"
 
 export default function StepperButtons({ backStep, nextStep, verifyElement }) {
 
@@ -10,8 +11,8 @@ export default function StepperButtons({ backStep, nextStep, verifyElement }) {
 
   return (
     <WrapperStepsButtons>
-      <ButtonStep onClick={backStep} backgroundColor="#2ec4b6" color="#ffffff" >Regresar</ButtonStep>
-      {nextStep && <ButtonStep onClick={handleNextStep} backgroundColor="#2ec4b6" color="#ffffff" disabled={!verifyElement}>Siguiente</ButtonStep>}
+      <Button onClick={backStep} backgroundColor="#000" color="#2ec4b6" >👈 REGRESAR</Button>
+      {nextStep && <Button onClick={handleNextStep} backgroundColor="#000" color="#2ec4b6" disabled={!verifyElement}>SIGUIENTE 👉</Button>}
     </WrapperStepsButtons>
   )
 }

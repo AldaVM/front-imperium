@@ -34,12 +34,8 @@ const schemaCustomerRegister = Yup.object().shape({
     .min(7, "Por favor verifica el número de teléfono")
     .max(9, "Por favor verifica el número de teléfono")
     .required("Este campo no puede quedarse vacío"),
-  age: Yup.number()
-    .required("Este campo no puede quedarse vacío")
-    .positive()
-    .min(5)
-    .max(80)
-    .integer(),
+  birthday: Yup.date()
+    .required("Este campo no puede quedarse vacío"),
   gender: Yup.mixed()
     .oneOf(['male', 'female', 'other'])
     .defined()

@@ -8,8 +8,8 @@ export const globalStyle = (
       /*Variables*/
       :root {
         /*Colores */
-        --colorPrimary: #2A9D8F;
-        --colorPrimaryLight: #000000;
+        --colorPrimary: #05544A;
+        --colorSecondary: #eab847;
         --colorIsFail: #e63946;
         --colorIsValid: #0077b6;
         /*Tipografía */

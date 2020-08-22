@@ -3,7 +3,7 @@ import styled from "@emotion/styled"
 export const StepContent = styled("li")`
   list-style-type: none;
   float: left;
-  width: 33%;
+  width: 33.33%;
   position: relative;
   text-align: center;
   font-weight: var(--textBold);
@@ -22,18 +22,19 @@ export const StepContent = styled("li")`
     margin: 0 auto 10px;
     background-color: #ddd;
     font-weight: var(--textBold);
+    z-index: 10;
     
   }
 
-  &::after{
+  &::after {
     content: " ";
     position: absolute;
     width: 100%;
-    height: 4px;
+    height: 1px;
     background-color: #ddd;
-    top: 15px;
+    top: 20px;
     left: -50%;
-    z-index: -1;
+    z-index: 1;
   }
 
   &:first-child::after {
@@ -42,15 +43,17 @@ export const StepContent = styled("li")`
 
   &.active {
     color: #000;
+    font-weight: 700;
   }
 
   &.active::before {
-    border-color: #2ec4b6;
-    background-color: #2ec4b6;;
+    color: var(--colorSecondary);
+    border-color: var(--colorSecondary);
+    background-color: #000;
   }
 
   &.active::after {
-    background-color: #2ec4b6;
+    background-color: #000;
   }
 
   &.inactive {

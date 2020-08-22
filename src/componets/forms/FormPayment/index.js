@@ -1,9 +1,13 @@
-import { Form, Button } from "../"
+import { Form } from "../"
+import { Button } from "../../shared/Button"
 import { CardPayment, WrapperPayments } from "./styled"
 import useRoot from "../../../hooks/useRoot"
 import fetchData from "../../../helpers/fetchData"
+import { useRouter } from 'next/router'
 
 export default function FormPayment({ updateLoading, updateMessage }) {
+
+  const router = useRouter();
 
   const {
     paid: { paidMethod, setPaidMethod },
@@ -11,6 +15,7 @@ export default function FormPayment({ updateLoading, updateMessage }) {
     currentTurn: { currentTurn },
     currentCustomer: { idCustomer }
   } = useRoot()
+
 
   function handleClick(e) {
     if (e.target.dataset.method) {
@@ -36,33 +41,45 @@ export default function FormPayment({ updateLoading, updateMessage }) {
 
     const updateCustomer = fetchData(`http://localhost:8000/v1/api/customer/${idCustomer}`, {
       method: 'PUT',
-      body: JSON.stringify(customer),
+      body: JSON.stringify({
+        ...customer,
+        timetable: currentTurn._id
+      }),
       mode: "cors",
       headers: {
         'Content-Type': 'application/json'
       }
     });
 
-    await Promise.all([registerTurn, updateCustomer]).then(values => console.log)
 
+    try {
+      await Promise.all([registerTurn, updateCustomer]).then(values => {
+        updateMessage("Gracias por registrarte ✌")
+        router.push('/happiness')
+        console.log(values)
+      })
+    } catch (error) {
+      console.log(error)
+      updateMessage("Oppss algo salió mal")
+    }
 
-
+    updateLoading(false)
 
   }
 
   return (
     <Form flexDirection="column" maxWidth="900px" onSubmit={handleSubmit}>
       <WrapperPayments>
-        <CardPayment background="skyblue" data-method="mensual" onClick={handleClick} price="S/ 150" className={paidMethod === "mensual" ? "active" : ""}>
+        <CardPayment background="#fff" color="#000" data-method="mensual" onClick={handleClick} price="S/ 150" className={paidMethod === "mensual" ? "active" : ""}>
           <h4 data-method="mensual">Mensual</h4>
           <span data-method="mensual">S/150</span>
         </CardPayment>
-        <CardPayment background="tomato" data-method="trimestral" onClick={handleClick} price="S/ 350" className={paidMethod === "trimestral" ? "active" : ""}>
+        <CardPayment background="#fff" color="#000" data-method="trimestral" onClick={handleClick} price="S/ 350" className={paidMethod === "trimestral" ? "active" : ""}>
           <h4 data-method="trimestral">Trimestral</h4>
           <span data-method="trimestral">S/350</span>
         </CardPayment>
       </WrapperPayments>
-      <Button type="submit" backgroundColor="#2ec4b6" color="#ffffff" disabled={!paidMethod}>Registrar</Button>
+      <Button type="submit" backgroundColor="#000000" color="#2ec4b6" disabled={!paidMethod}>REGISTRAR</Button>
     </Form>
   )
 }

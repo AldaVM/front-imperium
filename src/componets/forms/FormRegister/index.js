@@ -1,4 +1,5 @@
-import { Form, WrapperInput, Input, Label, Select, Button } from "../"
+import { Form, WrapperInput, Input, Label, Select } from "../"
+import { Button } from "../../shared/Button"
 import schemaCustomerRegister from "./validate"
 import { useFormik } from "formik"
 import useRoot from "../../../hooks/useRoot"
@@ -13,7 +14,7 @@ export default function FormRegisterCustomer({ handleStepper }) {
       surnames: customer?.surnames || "",
       phone_number: customer?.phone_number || "",
       email: customer?.email || "",
-      age: customer?.age || "",
+      birthday: customer?.birthday || "",
       gender: customer?.gender || "",
       address: customer?.address || "",
     },
@@ -47,8 +48,8 @@ export default function FormRegisterCustomer({ handleStepper }) {
       </WrapperInput>
 
       <WrapperInput>
-        <Label>Edad:</Label>
-        <Input type="number" placeholder="" error={errors.age} name="age" value={values.age} onChange={handleChange} />
+        <Label>Fecha de Nacimiento:</Label>
+        <Input type="date" placeholder="" error={errors.birthday} name="birthday" value={values.birthday} onChange={handleChange} />
       </WrapperInput>
 
       <WrapperInput>
@@ -60,13 +61,13 @@ export default function FormRegisterCustomer({ handleStepper }) {
           <option value="other">Otro</option>
         </Select>
       </WrapperInput>
-      
+
       <WrapperInput>
         <Label>Dirección:</Label>
         <Input type="text" placeholder="" error={errors.address} name="address" value={values.address} onChange={handleChange} />
       </WrapperInput>
 
-      <Button type="submit" disabled={!isValid} backgroundColor="#2ec4b6" color="#ffffff" alignSelf="flex-end">Seguiente</Button>
+      <Button type="submit" disabled={!isValid} backgroundColor="#000000" color="#2ec4b6" alignSelf="flex-end">SIGUIENTE 👉</Button>
     </Form >
   )
 }

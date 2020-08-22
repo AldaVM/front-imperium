@@ -1,4 +1,5 @@
-import { Form, WrapperInput, Label, Select, Button } from "../"
+import { Form, WrapperInput, Label, Select } from "../"
+import { Button } from "../../shared/Button"
 import { useFormik } from "formik"
 import fetchData from "../../../helpers/fetchData"
 import schemaTimetable from "./validate"
@@ -41,7 +42,7 @@ export default function FormTimetable({ updateLoading, updateMessage }) {
           updateTurns(response.data)
           updateMessage("")
         } else {
-          updateMessage(`${response.message}, prueba con otro`)
+          updateMessage(`${response.message}, por favor prueba con otro 😁`)
           updateCurrentTurn({ _id: null })
           updateTurns([])
         }
@@ -74,7 +75,7 @@ export default function FormTimetable({ updateLoading, updateMessage }) {
         </Select>
       </WrapperInput>
 
-      <Button type="submit" disabled={!isValid} backgroundColor="#2ec4b6" color="#ffffff" alignSelf="flex-end" alignSelf="flex-start">Consultar</Button>
+      <Button type="submit" disabled={!isValid} backgroundColor="#000000" color="#2ec4b6" alignSelf="flex-end" alignSelf="flex-start">CONSULTAR</Button>
     </Form >
   )
 }

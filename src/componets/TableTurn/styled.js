@@ -5,9 +5,9 @@ export const Table = styled("table")`
   width: 95%;
   padding: 0 1rem;
   margin: 2rem auto;
-
+ 
   & td, & th{
-    border: 3px solid #2ec4b6;
+    border: 3px solid #dd170e;
     padding: 8px;
     text-align: center;
     text-transform: uppercase;
@@ -15,11 +15,16 @@ export const Table = styled("table")`
 
   & th {
     padding: 1em 0;
-    background-color: #2A9D8F;
-    color: white;
+    background-color: #000000;
+    color: #eab847;
     font-weight: 700;
   }
 
-  & tr:nth-child(even){background-color: #f2f2f2;}
+  & tr{
+    background: #6c757d;
+    color: #000;
+    font-weight: 700; 
+  }
+
 `
 

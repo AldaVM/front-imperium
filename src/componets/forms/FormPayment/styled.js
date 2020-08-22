@@ -19,8 +19,11 @@ export const CardPayment = styled("li")`
   align-items: center;
   margin: 4rem 1rem;
   font-weight: var(--textBold);
-  border: 3px solid transparent;
   cursor: pointer;
+  border: 2px solid #000;
+  color: ${props => props.color};
+  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0);
+  transition: background linear 1s;
 
   & span{
     cursor: text;
@@ -29,7 +32,9 @@ export const CardPayment = styled("li")`
   }
 
   &.active {
-    border: 3px solid teal;
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.3);
+    background: #000;
+    color: #fff;
   }
 `
 
