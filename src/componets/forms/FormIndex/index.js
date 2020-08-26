@@ -21,7 +21,7 @@ export default function FormIndexContainer() {
       setMessage("");
 
       const response = await fetchData(
-        `https://imperium-backend.herokuapp.com/v1/api/find_by_dni/${values.dni}`,
+        `https://imperium-backend.herokuapp.com/v1/api/customer/find_by_dni/${values.dni}`,
         {
           method: "GET",
           mode: "cors",
