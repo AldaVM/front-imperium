@@ -8,13 +8,13 @@ export const globalStyle = (
       /*Variables*/
       :root {
         /*Colores */
-        --colorPrimary: #05544A;
+        --colorPrimary: #05544a;
         --colorSecondary: #eab847;
         --colorIsFail: #e63946;
         --colorIsValid: #0077b6;
         /*Tipografía */
         --fontFamily: "Roboto Condensed", sans-serif;
-        --fontSize: 15px;
+        --fontSize: 14px;
         --textBold: 700;
         --textLight: 300;
         --fontSizeH1: 2rem;
@@ -27,10 +27,10 @@ export const globalStyle = (
         --zIndex: 1;
         --zModal: 2000;
         @media (max-width: 800px) {
-          --fontSizeH1: 2.3rem;
-          --fontSizeH2: 1.8rem;
-          --fontSizeH3: 1.5rem;
-          --fontSizeH4: 1.2rem;
+          --fontSizeH1: 1.5rem;
+          --fontSizeH2: 1.2rem;
+          --fontSizeH3: 1rem;
+          --fontSizeH4: 1rem;
           --fontSizeSubtitle: 1rem;
           --fontSizeButton: 1rem;
           --fontSizeCaption: 0.75rem;
@@ -46,8 +46,7 @@ export const globalStyle = (
         font-family: var(--fontFamily);
         font-size: var(--fontSize);
         letter-spacing: 0.0125rem;
-        background-image:
-          radial-gradient(var(--colorPrimary) 1px, #fdfdfd 1px),
+        background-image: radial-gradient(var(--colorPrimary) 1px, #fdfdfd 1px),
           radial-gradient(var(--colorPrimary) 1px, #fdfdfd 1px);
         background-position: 0 0, 25px 25px;
         background-size: 50px 50px;
@@ -75,7 +74,9 @@ export const globalStyle = (
         font-weight: var(--textBold);
         letter-spacing: 0.015625rem;
       }
-      button, input[type="submit"], input[type="reset"] {
+      button,
+      input[type="submit"],
+      input[type="reset"] {
         background: none;
         color: inherit;
         border: none;

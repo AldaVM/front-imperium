@@ -1,13 +1,17 @@
-import { Table } from "./styled"
-import useRoot from "../../hooks/useRoot"
+import { Table } from "./styled";
+import { useContext } from "react";
+import TimetableContext from "../../contexts/TimetableContext";
 
-export default function TableTurn({ turns }) {
+export default function TableTurn() {
+  const { updateTimetable, timetables, timetable } = useContext(
+    TimetableContext
+  );
 
-  const { currentTurn: { currentTurn, updateCurrentTurn } } = useRoot();
-
-  function handleSelectedTurn({ target }) {
-    const [turn] = turns.filter((turn) => turn._id === target.value)
-    updateCurrentTurn(turn)
+  function selectTimetable({ target }) {
+    const [timetable] = timetables.filter(
+      (timetable) => timetable._id === target.value
+    );
+    updateTimetable(timetable);
   }
 
   return (
@@ -21,27 +25,28 @@ export default function TableTurn({ turns }) {
         </tr>
       </thead>
       <tbody>
-        {turns.length > 0 && turns.map((turn) => (
-          <tr key={turn._id}>
-            <td>
-              <div>
-                <label>
-                  <input
-                    type="radio"
-                    name="id_timetable"
-                    value={turn._id}
-                    onChange={handleSelectedTurn}
-                    checked={currentTurn._id === turn._id}
-                  />
-                </label>
-              </div>
-            </td>
-            <td>{turn.class_shift}</td>
-            <td>{turn.intermediate_days}</td>
-            <td>{turn.hour}</td>
-          </tr>
-        ))}
+        {timetables.length > 0 &&
+          timetables.map((tmtable) => (
+            <tr key={tmtable._id}>
+              <td>
+                <div>
+                  <label>
+                    <input
+                      type="radio"
+                      name="id_timetable"
+                      value={tmtable._id}
+                      onChange={selectTimetable}
+                      checked={timetable._id === tmtable._id}
+                    />
+                  </label>
+                </div>
+              </td>
+              <td>{tmtable.class_shift}</td>
+              <td>{tmtable.intermediate_days}</td>
+              <td>{tmtable.hour}</td>
+            </tr>
+          ))}
       </tbody>
     </Table>
-  )
+  );
 }

@@ -1,44 +1,56 @@
-import { Form, WrapperInput, Input, Label } from "../";
-import { Button } from "../../shared/Button";
-import { MessageResponse } from "../../shared/Message";
-import withFormIndex from "./container";
+import { useState, useContext } from "react";
+import { useFormik } from "formik";
+import fetchData from "../../../helpers/fetchData";
+import CustomerContext from "../../../contexts/CustomerContext";
+import FormIndex from "./FormIndex";
+import schemaFormIndex from "./validate";
 
-function FormIndex({
-  values,
-  handleChange,
-  isValid,
-  errors,
-  handleSubmit,
-  isLoading,
-  message,
-}) {
+export default function FormIndexContainer() {
+  const { updateCustomer } = useContext(CustomerContext);
+  const [isLoading, setLoading] = useState(false);
+  const [message, setMessage] = useState(null);
+
+  const { values, handleChange, isValid, errors, handleSubmit } = useFormik({
+    initialValues: {
+      dni: "",
+    },
+    validationSchema: schemaFormIndex,
+    onSubmit: async function (values, bag) {
+      bag.setSubmitting(false);
+      setLoading(true);
+      setMessage("");
+
+      const response = await fetchData(
+        `https://imperium-backend.herokuapp.com/find_by_dni/${values.dni}`,
+        {
+          method: "GET",
+          mode: "cors",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (response.status === 200) {
+        updateCustomer(response.data);
+        setMessage("Ingresando...⌛");
+      } else {
+        setMessage(`${response.message}`);
+      }
+
+      setLoading(false);
+    },
+  });
+
   return (
-    <Form flexDirection="column" onSubmit={handleSubmit}>
-      <WrapperInput>
-        <Label>DNI:</Label>
-        <Input
-          type="text"
-          placeholder=""
-          error={errors.dni}
-          name="dni"
-          value={values.dni}
-          onChange={handleChange}
-        />
-      </WrapperInput>
-
-      <Button
-        type="submit"
-        disabled={!isValid}
-        backgroundColor="#000"
-        color="#2ec4b6"
-        alignSelf="center"
-      >
-        VALIDAR
-      </Button>
-      {isLoading && <MessageResponse>Validando datos...⌛</MessageResponse>}
-      {message && <MessageResponse>{message}</MessageResponse>}
-    </Form>
+    <FormIndex
+      handleSubmit={handleSubmit}
+      isLoading={isLoading}
+      message={message}
+      values={values}
+      handleChange={handleChange}
+      isValid={isValid}
+      errors={errors}
+    />
   );
 }
-
-export default withFormIndex(FormIndex)();

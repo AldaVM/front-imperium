@@ -1,18 +1,18 @@
-import styled from "@emotion/styled"
+import styled from "@emotion/styled";
 
 export const WrapperPayments = styled("ul")`
   display: flex;
   justify-content: center;
   align-items: center,
   background: teal;
-`
+`;
 
 export const CardPayment = styled("li")`
-  background-color: ${props => props.background};
-  padding: 2em .5em;
+  background-color: ${(props) => props.background};
+  padding: 2em 0.5em;
   width: 160px;
   height: 160px;
-  border-radius: .3em;
+  border-radius: 0.3em;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,11 +21,11 @@ export const CardPayment = styled("li")`
   font-weight: var(--textBold);
   cursor: pointer;
   border: 2px solid #000;
-  color: ${props => props.color};
+  color: ${(props) => props.color};
   box-shadow: 4px 4px 5px rgba(0, 0, 0, 0);
   transition: background linear 1s;
 
-  & span{
+  & span {
     cursor: text;
     line-height: 1.5;
     font-size: 1.7em;
@@ -36,6 +36,9 @@ export const CardPayment = styled("li")`
     background: #000;
     color: #fff;
   }
-`
 
-
+  @media (max-width: 800px) {
+    width: 120px;
+    height: 120px;
+  }
+`;

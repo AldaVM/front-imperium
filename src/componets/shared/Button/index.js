@@ -1,7 +1,7 @@
-import styled from "@emotion/styled"
+import styled from "@emotion/styled";
 
 export const Button = styled.button`
-  align-self: ${props => props.alignSelf};
+  align-self: ${(props) => props.alignSelf};
   cursor: pointer;
   display: block;
   background-color: ${(props) => props.backgroundColor};
@@ -10,8 +10,8 @@ export const Button = styled.button`
   letter-spacing: 1px;
   border-radius: 0.3em;
   box-shadow: none;
-  margin-top: .5rem;
-  padding: 1.3em 2em; 
+  margin-top: 0.5rem;
+  padding: 1.3em 1.2em;
   font-size: var(--fontSize);
   box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.3);
   &:active {

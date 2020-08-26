@@ -23,7 +23,7 @@ export default function Home() {
       <Logo
         srcImg="/logo.png"
         descriptionImg="Logo Supay Imperium Cross"
-        maxWidth="300px"
+        maxWidth="200px"
       />
       <h1>Ingresa tu número de DNI</h1>
       <FormIndex />
