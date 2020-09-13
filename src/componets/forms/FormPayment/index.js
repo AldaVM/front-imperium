@@ -48,6 +48,7 @@ export default function FormPaymentContainer() {
         body: JSON.stringify({
           ...customer,
           timetable: timetable._id,
+          date_timetable: Date.now(),
         }),
         mode: "cors",
         headers: {
