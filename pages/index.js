@@ -4,9 +4,7 @@ import CustomerProvider from "../src/providers/CustomerProvider";
 export default function Index() {
   return (
     <>
-      <CustomerProvider>
-        <Home />
-      </CustomerProvider>
+      <Home />
     </>
   );
 }
