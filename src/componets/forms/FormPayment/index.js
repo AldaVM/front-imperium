@@ -3,8 +3,8 @@ import { useRouter } from "next/router";
 import PaymentContext from "../../../contexts/PaymentContext";
 import CustomerContext from "../../../contexts/CustomerContext";
 import TimetableContext from "../../../contexts/TimetableContext";
-import fetchData from "../../../helpers/fetchData";
 import FormPayment from "./FormPayment";
+import { fetchAPI } from "../../../utils";
 
 export default function FormPaymentContainer() {
   const router = useRouter();
@@ -27,38 +27,20 @@ export default function FormPaymentContainer() {
     setIsLoading(true);
     setMessage("");
 
-    const registerTimetable = fetchData(
-      `https://imperium-backend.herokuapp.com/v1/api/timetable/add_customer/${timetable._id}`,
-      {
-        method: "PUT",
-        body: JSON.stringify({
-          _id: customer._id,
-        }),
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    const registerTimetable = fetchAPI(
+      `timetable/add_customer/${timetable._id}`
+    ).updateAPI({
+      _id: customer._id,
+    });
 
-    const updateCustomer = fetchData(
-      `https://imperium-backend.herokuapp.com/v1/api/customer/${customer._id}`,
-      {
-        method: "PUT",
-        body: JSON.stringify({
-          ...customer,
-          timetable: timetable._id,
-          date_timetable: Date.now(),
-        }),
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    const updateCustomer = fetchAPI(`customer/${customer._id}`).updateAPI({
+      ...customer,
+      timetable: timetable._id,
+      date_timetable: Date.now(),
+    });
 
     try {
-      await Promise.all([registerTimetable, updateCustomer]).then((values) => {
+      await Promise.all([registerTimetable, updateCustomer]).then(() => {
         setMessage("Gracias por registrarte ✌");
         router.push("/happiness");
       });

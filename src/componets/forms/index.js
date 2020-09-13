@@ -1,6 +1,5 @@
-import styled from "@emotion/styled"
-import { BREAKPOINTS, sizeMediaQuery } from "../shared"
-
+import styled from "@emotion/styled";
+import { BREAKPOINTS, sizeMediaQuery } from "../shared";
 
 export const Form = styled("form")`
   display: flex;
@@ -12,15 +11,16 @@ export const Form = styled("form")`
   padding: 1rem;
   width: 100%;
 
-  ${sizeMediaQuery(BREAKPOINTS.s)}{
+  ${sizeMediaQuery(BREAKPOINTS.s)} {
     flex-direction: column;
   }
-`
+`;
 
 export const Select = styled.select`
-  border: ${(props) => props.error ? "2px solid #9e2a2b" : "2px solid var(--colorPrimary)"};
+  border: ${(props) =>
+    props.error ? "2px solid #9e2a2b" : "2px solid var(--colorPrimary)"};
   border-radius: 0.3em;
-  padding: 0.8em;
+  padding: 0.6em;
   background-color: #fff;
   width: 100%;
   max-width: ${(props) => props.maxWidth};
@@ -47,15 +47,18 @@ export const Label = styled.label`
 `;
 
 export const Input = styled.input`
-  border: ${(props) => props.error ? "2px solid #9e2a2b" : "2px solid var(--colorPrimary)"};
+  border: ${(props) =>
+    props.error ? "2px solid #9e2a2b" : "2px solid var(--colorPrimary)"};
   border-radius: 0.3em;
-  padding: 0.8em;
+  padding: 0.6em;
   width: 100%;
   margin: 0.3rem 0;
   max-width: ${(props) => props.maxWidth};
   font-size: var(--fontSize);
+
   &:focus {
-    border-color: 2px solid #00b4d8;
+    border: 2px solid #457b9d;
+    box-shadow: 1px 0px 3px 0px #457b9d;
   }
   &[disabled] {
     background-color: rgba(0, 0, 0, 0.1);
@@ -67,7 +70,8 @@ export const Input = styled.input`
 `;
 
 export const Textarea = styled.textarea`
-  border: ${(props) => props.error ? "2px solid #9e2a2b" : "2px solid var(--colorPrimary)"};;
+  border: ${(props) =>
+    props.error ? "2px solid #9e2a2b" : "2px solid var(--colorPrimary)"};
   font-size: var(--fontSize);
   border-radius: 0.3em;
   padding: 0.6em;
@@ -90,16 +94,11 @@ export const Textarea = styled.textarea`
 export const WrapperInput = styled.div`
   display: block;
   width: 100%;
-  margin-top: .5rem;
-  margin-bottom: .5rem;
-  max-width: ${props => props.maxWidth};
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  max-width: ${(props) => props.maxWidth};
 
-  ${sizeMediaQuery(BREAKPOINTS.s)}{
+  ${sizeMediaQuery(BREAKPOINTS.s)} {
     max-width: 100%;
   }
 `;
-
-
-
-
-

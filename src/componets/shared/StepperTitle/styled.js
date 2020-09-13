@@ -1,4 +1,4 @@
-import styled from "@emotion/styled"
+import styled from "@emotion/styled";
 
 export const StepperHeader = styled("div")`
   text-align: center;
@@ -6,11 +6,11 @@ export const StepperHeader = styled("div")`
 
   span {
     display: inline-block;
-    font-size: 1.2em;
-    margin-top: 1.5em;
+    font-size: 1.1em;
+    margin-top: 0.5em;
   }
 
   h1 {
     line-height: 1.1;
   }
-`
+`;

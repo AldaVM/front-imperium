@@ -1,24 +1,11 @@
-// import { useRouter } from "next/router";
 import { useState } from "react";
 import Stepper from "../shared/Stepper";
 import FormRegister from "../forms/FormRegister";
 import Timetable from "../Timetable";
 import Payment from "../Payment";
-// import CustomerContext from "../../contexts/CustomerContext";
 
 export default function Register() {
-  // const { customer } = useContext(CustomerContext);
   const [activeStep, setActiveStep] = useState(1);
-
-  // const router = useRouter();
-
-  // if (!customer._id) {
-  //   router.push("/");
-  // }
-
-  // useEffect(() => {
-  //   router.prefetch("/");
-  // }, []);
 
   const steps = [
     {

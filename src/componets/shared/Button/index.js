@@ -11,7 +11,7 @@ export const Button = styled.button`
   border-radius: 0.3em;
   box-shadow: none;
   margin-top: 0.5rem;
-  padding: 1.3em 1.2em;
+  padding: 1em 1.2em;
   font-size: var(--fontSize);
   box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.3);
   &:active {

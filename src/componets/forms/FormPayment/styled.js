@@ -9,7 +9,7 @@ export const WrapperPayments = styled("ul")`
 
 export const CardPayment = styled("li")`
   background-color: ${(props) => props.background};
-  padding: 2em 0.5em;
+  padding: 1em 0.5em;
   width: 160px;
   height: 160px;
   border-radius: 0.3em;
@@ -17,7 +17,7 @@ export const CardPayment = styled("li")`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 4rem 1rem;
+  margin: 2rem 1rem;
   font-weight: var(--textBold);
   cursor: pointer;
   border: 2px solid #000;

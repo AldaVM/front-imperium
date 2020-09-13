@@ -1,9 +1,9 @@
 import { useState, useContext } from "react";
 import { useFormik } from "formik";
-import fetchData from "../../../helpers/fetchData";
 import CustomerContext from "../../../contexts/CustomerContext";
 import FormIndex from "./FormIndex";
 import schemaFormIndex from "./validate";
+import { fetchAPI } from "../../../utils";
 
 export default function FormIndexContainer() {
   const { updateCustomer } = useContext(CustomerContext);
@@ -20,23 +20,20 @@ export default function FormIndexContainer() {
       setLoading(true);
       setMessage("");
 
-      const response = await fetchData(
-        `https://imperium-backend.herokuapp.com/v1/api/customer/find_by_dni/${values.dni}`,
-        {
-          method: "GET",
-          mode: "cors",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const { getAPI } = fetchAPI(`customer/find_by_dni/${values.dni}`);
 
-      if (response.status === 200) {
-        updateCustomer(response.data);
-        setMessage("Ingresando...⌛");
-      } else {
-        setMessage(`${response.message}`);
-      }
+      getAPI()
+        .then((response) => {
+          if (response.status !== 500) {
+            updateCustomer(response.data);
+            setMessage("Ingresando...⌛");
+          } else {
+            setMessage(`${response.message}`);
+          }
+        })
+        .catch((error) => {
+          setMessage(`${error.message}`);
+        });
 
       setLoading(false);
     },

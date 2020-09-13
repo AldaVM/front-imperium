@@ -10,7 +10,7 @@ export default function Home() {
 
   const { customer } = useContext(CustomerContext);
 
-  if (customer._id) {
+  if (customer?._id) {
     router.push("/register");
   }
 
