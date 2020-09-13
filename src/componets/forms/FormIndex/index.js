@@ -27,6 +27,7 @@ export default function FormIndexContainer() {
           if (response.status !== 500) {
             updateCustomer(response.data);
             setMessage("Ingresando...⌛");
+            setMessage(response.message);
           } else {
             setMessage(`${response.message}`);
           }
