@@ -22,7 +22,6 @@ export default function FormPayment({
           className={paidMethod === "mensual" ? "active" : ""}
         >
           <h4 data-method="mensual">Mensual</h4>
-          <span data-method="mensual">S/150</span>
         </CardPayment>
         <CardPayment
           background="#fff"
@@ -33,7 +32,6 @@ export default function FormPayment({
           className={paidMethod === "trimestral" ? "active" : ""}
         >
           <h4 data-method="trimestral">Trimestral</h4>
-          <span data-method="trimestral">S/350</span>
         </CardPayment>
       </WrapperPayments>
       <Button
