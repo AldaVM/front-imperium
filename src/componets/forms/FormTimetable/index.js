@@ -34,6 +34,10 @@ export default function FormTimetableContainer() {
           if (timetable) {
             updateAllTimetables(timetable);
             setMessage("");
+          } else {
+            setMessage("Por favor prueba con otro turno");
+            updateTimetable({ _id: null });
+            updateAllTimetables([]);
           }
         })
         .catch((error) => {
