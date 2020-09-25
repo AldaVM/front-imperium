@@ -25,10 +25,10 @@ export default function Layout({ children }) {
         />
         <meta
           property="og:description"
-          content="Aplicación web para registrar de Alumnos de Imperium Cross"
+          content="Aplicación web para registrar a los alumnos de Imperium Cross"
           key="ogdesc"
         />
-        <meta property="og:image" content="/logo.png" key="ogimage" />
+        <meta property="og:image" content="/public/logo.png" key="ogimage" />
         <meta
           property="og:site_name"
           content="ImperiumCross"
