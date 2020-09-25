@@ -9,7 +9,7 @@ const withPrivateRoute = (Component) => {
 
     useEffect(() => {
       if (!customer._id) {
-        router.push("/");
+        router.replace("/");
       }
     }, []);
 

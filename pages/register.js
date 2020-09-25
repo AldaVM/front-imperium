@@ -1,8 +1,9 @@
 import Register from "../src/componets/Register";
 import TimetableProvider from "../src/providers/TimetableProvider";
 import PaymentProvider from "../src/providers/PaymentProvider";
+import withPrivateRoute from "../src/hoc/withPrivateRoute";
 
-export default function Home() {
+function Home() {
   return (
     <TimetableProvider>
       <PaymentProvider>
@@ -11,3 +12,5 @@ export default function Home() {
     </TimetableProvider>
   );
 }
+
+export default withPrivateRoute(Home);

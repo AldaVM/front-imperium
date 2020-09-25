@@ -3,8 +3,9 @@ import { StepperHeader } from "../src/componets/shared/StepperTitle/styled";
 import Logo from "../src/componets/shared/Logo";
 import { useContext } from "react";
 import CustomerContext from "../src/contexts/CustomerContext";
+import withPrivateRoute from "../src/hoc/withPrivateRoute";
 
-export default function HappinessPage() {
+function HappinessPage() {
   const { customer } = useContext(CustomerContext);
 
   return (
@@ -26,3 +27,5 @@ export default function HappinessPage() {
     </HomeWrapper>
   );
 }
+
+export default withPrivateRoute(HappinessPage);

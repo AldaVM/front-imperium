@@ -7,7 +7,6 @@ import FormRegister from "./FormRegister";
 export default function FormRegisterContainer({ handleStepper }) {
   const { customer, updateCustomer } = useContext(CustomerContext);
 
-  console.log(customer);
   const { values, handleChange, isValid, errors, handleSubmit } = useFormik({
     initialValues: {
       names: customer?.names || "",
