@@ -47,11 +47,13 @@ export default function FormPaymentContainer() {
         ? {
             ...customer,
             date_timetable: Date.now(),
+            type_timetable: `all_days: ${timetable.intermediate_days} - ${timetable.hour}`,
           }
         : {
             ...customer,
             timetable: timetable._id,
             date_timetable: Date.now(),
+            type_timetable: `intermediate_days: ${timetable.intermediate_days} - ${timetable.hour}`,
           };
 
     const registerTimetable = fetchAPI(timetablePath).updateAPI(timetableBody);
