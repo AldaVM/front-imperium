@@ -27,22 +27,44 @@ export default function FormPaymentContainer() {
     setIsLoading(true);
     setMessage("");
 
-    const registerTimetable = fetchAPI(
-      `timetable/add_customer/${timetable._id}`
-    ).updateAPI({
-      _id: customer._id,
-    });
+    const timetablePath =
+      timetable?.intermediate_days === "Diario"
+        ? "timetable/add_customer/all-days"
+        : `timetable/add_customer/${timetable._id}`;
 
-    const updateCustomer = fetchAPI(`customer/${customer._id}`).updateAPI({
-      ...customer,
-      timetable: timetable._id,
-      date_timetable: Date.now(),
-    });
+    const timetableBody =
+      timetable?.intermediate_days === "Diario"
+        ? {
+            hour: timetable.hour,
+            _id: customer._id,
+          }
+        : {
+            _id: customer._id,
+          };
+
+    const bodyTimetable =
+      timetable?.intermediate_days === "Diario"
+        ? {
+            ...customer,
+            date_timetable: Date.now(),
+          }
+        : {
+            ...customer,
+            timetable: timetable._id,
+            date_timetable: Date.now(),
+          };
+
+    const registerTimetable = fetchAPI(timetablePath).updateAPI(timetableBody);
+
+    const updateCustomer = fetchAPI(`customer/${customer._id}`).updateAPI(
+      bodyTimetable
+    );
 
     try {
       await Promise.all([registerTimetable, updateCustomer]).then(() => {
         setMessage("Gracias por registrarte ✌");
-        router.push("/happiness");
+        console.log(customer);
+        // router.push("/happiness");
       });
     } catch (error) {
       setMessage("Oppss algo salió mal");

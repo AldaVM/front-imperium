@@ -24,6 +24,7 @@ export default function FormTimetable({
           <option>Selecciona los días frecuentes:</option>
           <option value="L-M-V">Lunes-Miércoles-Viernes</option>
           <option value="M-J-S">Martes-Jueves-Sábado</option>
+          <option value="all_days">Diario</option>
         </Select>
       </WrapperInput>
 

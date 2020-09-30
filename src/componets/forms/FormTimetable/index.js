@@ -21,16 +21,29 @@ export default function FormTimetableContainer() {
       setIsLoading(true);
       setMessage("");
 
-      const { postAPI } = fetchAPI("timetable/shift_available");
+      const servicePath =
+        values.intermediate_days === "all_days"
+          ? "timetable/shift_available/all_days"
+          : "timetable/shift_available";
 
-      await postAPI({
-        items: {
-          class_shift: values.class_shift,
-          intermediate_days: values.intermediate_days,
-        },
-      })
+      const itemsBody =
+        values.intermediate_days === "all_days"
+          ? {
+              class_shift: values.class_shift,
+            }
+          : {
+              items: {
+                class_shift: values.class_shift,
+                intermediate_days: values.intermediate_days,
+              },
+            };
+
+      const { postAPI } = fetchAPI(servicePath);
+
+      await postAPI(itemsBody)
         .then((response) => {
           const { data: timetable } = validateStatusAPI(response);
+          console.log(response);
           if (timetable) {
             updateAllTimetables(timetable);
             setMessage("");
