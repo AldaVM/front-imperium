@@ -63,8 +63,7 @@ export default function FormPaymentContainer() {
     try {
       await Promise.all([registerTimetable, updateCustomer]).then(() => {
         setMessage("Gracias por registrarte ✌");
-        console.log(customer);
-        // router.push("/happiness");
+        router.push("/happiness");
       });
     } catch (error) {
       setMessage("Oppss algo salió mal");

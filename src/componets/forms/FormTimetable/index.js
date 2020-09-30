@@ -43,7 +43,6 @@ export default function FormTimetableContainer() {
       await postAPI(itemsBody)
         .then((response) => {
           const { data: timetable } = validateStatusAPI(response);
-          console.log(response);
           if (timetable) {
             updateAllTimetables(timetable);
             setMessage("");
