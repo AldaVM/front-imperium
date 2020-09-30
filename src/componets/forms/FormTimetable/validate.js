@@ -6,7 +6,7 @@ const schemaTimetable = Yup.object().shape({
     .defined()
     .required("Por favor selecciona tu género"),
   class_shift: Yup.mixed()
-    .oneOf(["mañana", "noche"])
+    .oneOf(["mañana", "noche", "openbox"])
     .defined()
     .required("Por favor selecciona tu género"),
 });

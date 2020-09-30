@@ -35,31 +35,35 @@ export default function FormPaymentContainer() {
     const timetableBody =
       timetable?.intermediate_days === "Diario"
         ? {
-            hour: timetable.hour,
+            idsTurn: timetable.turns_id,
             _id: customer._id,
           }
         : {
             _id: customer._id,
           };
 
-    const bodyTimetable =
+    const bodyCustomer =
       timetable?.intermediate_days === "Diario"
         ? {
             ...customer,
             date_timetable: Date.now(),
             type_timetable: `all_days: ${timetable.intermediate_days} - ${timetable.hour}`,
+            timetable: timetable.turns_id,
+            type_modality: paidMethod,
           }
         : {
             ...customer,
             timetable: timetable._id,
             date_timetable: Date.now(),
             type_timetable: `intermediate_days: ${timetable.intermediate_days} - ${timetable.hour}`,
+            timetable: [timetable._id],
+            type_modality: paidMethod,
           };
 
     const registerTimetable = fetchAPI(timetablePath).updateAPI(timetableBody);
 
     const updateCustomer = fetchAPI(`customer/${customer._id}`).updateAPI(
-      bodyTimetable
+      bodyCustomer
     );
 
     try {

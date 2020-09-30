@@ -39,6 +39,7 @@ export default function FormTimetable({
           <option>Selecciona un horario</option>
           <option value="mañana">Mañana</option>
           <option value="noche">Noche</option>
+          <option value="openbox">Tarde - OPEN BOX</option>
         </Select>
       </WrapperInput>
 
