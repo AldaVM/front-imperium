@@ -7,6 +7,9 @@
     "build": "next build",
     "start": "next start"
   },
+  "engines": {
+    "node": "16.x"
+  },
   "dependencies": {
     "@emotion/core": "^10.0.34",
     "@emotion/styled": "^10.0.27",
